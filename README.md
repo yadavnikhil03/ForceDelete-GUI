@@ -26,7 +26,7 @@
 Open PowerShell **as an Administrator** and run this:
 
 ```powershell
-irm [https://raw.githubusercontent.com/yadavnikhil03/ForceDelete-GUI/main/ForceDelete-GUI.ps1](https://raw.githubusercontent.com/yadavnikhil03/ForceDelete-GUI/main/ForceDelete-GUI.ps1) | iex
+irm https://raw.githubusercontent.com/yadavnikhil03/ForceDelete-GUI/main/ForceDelete-GUI.ps1 | iex
 ```
 
 **How to Use:**
