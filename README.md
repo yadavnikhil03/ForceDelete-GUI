@@ -31,4 +31,4 @@ A **simple PowerShell tool with a clean GUI** that helps you delete those annoyi
 Just copy and paste this into PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/yadavnikhil03/ForceDelete-GUI/main/ForceDelete-GUI.ps1 | iex
+irm https://raw.githubusercontent.com/yadavnikhil03/ForceDelete-GUI/main/ForceDelete.ps1 | iex
