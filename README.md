@@ -66,7 +66,6 @@ This project is under the [MIT License](https://opensource.org/licenses/MIT).
 
 - Light/Dark theme option.
 - More detailed logging.
-- A version that doesn't need PowerShell.
 - Ability to delete multiple folders at once.
 - General UI improvements.
 
