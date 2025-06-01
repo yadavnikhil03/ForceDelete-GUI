@@ -56,11 +56,16 @@ $scriptPath = if ($PSScriptRoot) {
 } elseif ($MyInvocation.MyCommand.Path) {
     Split-Path -Parent $MyInvocation.MyCommand.Path
 } else {
-    $PWD.Path
+    # When running via irm | iex or similar methods
+    # Skip module imports since they likely don't exist in the current directory
+    $null
 }
 
-Import-Module "$scriptPath\themes\WinUI3-Colors.psm1" -Force -ErrorAction SilentlyContinue
-Import-Module "$scriptPath\utils\FileOperations.psm1" -Force -ErrorAction SilentlyContinue
+# Only attempt to import modules if scriptPath is determined
+if ($scriptPath) {
+    Import-Module "$scriptPath\themes\WinUI3-Colors.psm1" -Force -ErrorAction SilentlyContinue
+    Import-Module "$scriptPath\utils\FileOperations.psm1" -Force -ErrorAction SilentlyContinue
+}
 
 # Color scheme (modern theme with accent colors)
 function Get-EnhancedColors {
