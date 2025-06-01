@@ -56,13 +56,13 @@ $scriptPath = if ($PSScriptRoot) {
 } elseif ($MyInvocation.MyCommand.Path) {
     Split-Path -Parent $MyInvocation.MyCommand.Path
 } else {
-    # When running via irm | iex or similar methods
-    # Skip module imports since they likely don't exist in the current directory
-    $null
+    # When running via irm | iex, show a message about modules
+    Write-Host "Running in GitHub mode - module features will be limited." -ForegroundColor Yellow
+    $PWD.Path  # Use current directory as fallback
 }
 
-# Only attempt to import modules if scriptPath is determined
-if ($scriptPath) {
+# Only attempt to import modules if scriptPath is valid
+if ($scriptPath -and (Test-Path -Path "$scriptPath\themes" -ErrorAction SilentlyContinue)) {
     Import-Module "$scriptPath\themes\WinUI3-Colors.psm1" -Force -ErrorAction SilentlyContinue
     Import-Module "$scriptPath\utils\FileOperations.psm1" -Force -ErrorAction SilentlyContinue
 }
