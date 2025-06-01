@@ -57,7 +57,7 @@ $scriptPath = if ($PSScriptRoot) {
     Split-Path -Parent $MyInvocation.MyCommand.Path
 } else {
     # When running via irm | iex, show a message about modules
-    Write-Host "Running in GitHub mode - module features will be limited." -ForegroundColor Yellow
+    Write-Host "Running in GitHub mode." -ForegroundColor Yellow
     $PWD.Path  # Use current directory as fallback
 }
 
