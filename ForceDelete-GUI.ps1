@@ -51,7 +51,14 @@ function Write-DeletionLog {
 }
 
 # Import custom modules
-$scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+$scriptPath = if ($PSScriptRoot) { 
+    $PSScriptRoot 
+} elseif ($MyInvocation.MyCommand.Path) {
+    Split-Path -Parent $MyInvocation.MyCommand.Path
+} else {
+    $PWD.Path
+}
+
 Import-Module "$scriptPath\themes\WinUI3-Colors.psm1" -Force -ErrorAction SilentlyContinue
 Import-Module "$scriptPath\utils\FileOperations.psm1" -Force -ErrorAction SilentlyContinue
 
